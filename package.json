@@ -1,0 +1,13 @@
+{
+  "name": "wdd330-individual-project",
+  "version": "1.0.0",
+  "description": "WDD330 Final Project",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "author": "Ovinson Lugo",
+  "dependencies": {
+    "parcel": "^2.14.4"
+  }
+}
