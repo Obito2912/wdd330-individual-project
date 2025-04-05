@@ -1,4 +1,4 @@
-const helloNode = document.createElement('h1');
-helloNode.textContent = 'Hello World';
+import App from 'App.js';
 
-document.getElementById('root').appendChild(helloNode)
+document.getElementById('root').appendChild(App());
+console.log("TEST KEY:", import.meta.env.VITE_API_KEY);

@@ -4,10 +4,12 @@
   "description": "WDD330 Final Project",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html"
+    "build": "parcel build index.html",
+    "prettier": "prettier --write ."
   },
   "author": "Ovinson Lugo",
   "dependencies": {
-    "parcel": "^2.14.4"
+    "parcel": "^2.14.4",
+    "prettier": "^3.5.3"
   }
 }
