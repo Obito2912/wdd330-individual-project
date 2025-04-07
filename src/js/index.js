@@ -1,4 +1,10 @@
-import App from './app.js';
+import App from "./app.js";
+import ExternalServices from "./ExternalServices.js";
 
-document.getElementById('root').appendChild(App());
-console.log("TEST KEY:", import.meta.env.VITE_API_KEY);
+document.getElementById("root").appendChild(App());
+
+const services = new ExternalServices();
+
+// services.getSeasons().then((seasons) => {
+//   console.log("NBA Seasons:", seasons);
+// });
