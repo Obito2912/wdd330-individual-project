@@ -1,45 +1,43 @@
 import { createElement } from "./utils";
 import { initRouter } from "./router";
+import logoAsset from "../images/animeptm-logo500.webp";
+const logo = logoAsset.default || logoAsset; // Fallback in case it's already a string
 
-function navBar() {
-  const appTitle = createElement("h1", {
-    textContent: "My Cool Project",
-    className: "heading",
-  });
+// Create some content for the footer.
+const footerContent = createElement("div", {}, [
+  createElement("p", { textContent: "Copyright ©2025 AnimePTM" }),
+]);
 
-  // nav items
-  const page1 = createElement("a", {
-    href: "/#/page1",
-    textContent: "Page 1",
-  });
-  const page2 = createElement("a", {
-    href: "/#/page2",
-    textContent: "Page 2",
-  });
-  const page3 = createElement("a", {
-    href: "/#/page3",
-    textContent: "Page 3",
-  });
+// Create a navigation bar for the header.
+const headerContent = createElement("div", { className: "navBar-content" }, [
+  createElement("nav", {}, [
+    createElement("a", { href: "/#/page1", textContent: "Page 1" }),
+    createElement("a", { href: "/#/page2", textContent: "Page 2" }),
+    createElement("a", { href: "/#/page3", textContent: "Page 3" }),
+    createElement("a", { href: "/#/page4", textContent: "Page 4" }),
+  ]),
+  createElement("picture", { className: "main-logo" }, [
+    createElement("source", { media: "(min-width: 1024px)", srcset: logo }),
+    createElement("img", {
+      src: logo,
+      alt: "AnimePTM Logo",
+      width: "200",
+      height: "200",
+    }),
+  ]),
+]);
 
-  const nav = createElement("nav", {}, [page1, page2, page3]);
+document.addEventListener("DOMContentLoaded", () => {
+  // Grab the header, main view (root), and footer elements.
+  const header = document.getElementById("header");
+  const mainView = document.getElementById("root");
+  const footer = document.getElementById("footer");
 
-  return createElement("header", {}, [appTitle, nav]);
-}
+  // Append the nav bar to the header.
+  header.appendChild(headerContent);
 
-function Footer() {
-  const copyright = createElement("span", {
-    textContent: `Copyright © ${new Date().getFullYear()}`,
-  });
+  footer.appendChild(footerContent);
 
-  return createElement("footer", {}, [copyright]);
-}
-
-function App() {
-  const main = createElement("main", {}, []);
-
-  initRouter(main);
-
-  return createElement("div", {}, [Header(main), main, Footer()]);
-}
-
-export default App;
+  // Initialize your router so that it updates only the main view (#root).
+  initRouter(mainView);
+});
