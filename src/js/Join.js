@@ -1,14 +1,9 @@
 import { createElement } from "./utils";
 
-function Page3() {
-  const title = createElement("h2", { textContent: "Page 3" });
+function JoinPage() {
+  const title = createElement("h2", { textContent: "Join our awesome community" });
 
-  const page1Link = createElement("a", {
-    href: "/#/page1",
-    textContent: "Link to Page 1",
-  });
-
-  return createElement("div", {}, [title, page1Link]);
+  return createElement("div", {}, [title]);
 }
 
-export default Page3;
+export default JoinPage;

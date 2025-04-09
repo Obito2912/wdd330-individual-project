@@ -1,25 +1,9 @@
 import { createElement } from "./utils";
 
 function TrailersPage() {
-  const title = createElement("h2", { textContent: "Awake your inner otaku by watching" });
-  const landscape = createElement('picture', {className: 'landscape-container'}, [
-    createElement("picture", { className: "main-logo" }, [
-      createElement("source", {
-        media: "(min-width: 1024px)",
-        srcSet: '/images/landscape.webp',
-      }),
-      createElement("img", {
-        src: '/images/landscape.webp',
-        alt: "Landscape for Landing Page",
-        width: "200",
-        height: "200",
-      })
-    ]),
-  ]);
-  
-  
+  const title = createElement("h2", { textContent: "Here are some of the best anime trailers" });
 
-  return createElement("div", {}, [title, landscape]);
+  return createElement("div", {}, [title]);
 }
 
 export default TrailersPage;

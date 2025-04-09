@@ -1,8 +1,9 @@
 import { createElement } from "./utils";
 
+import HomePage from "./Home";
 import TrailersPage from "./Trailers";
-import Page2 from "./Page2";
-import Page3 from "./Page3";
+import LibraryPage from "./Library";
+import JoinPage from "./Join";
 
 export function initRouter(mainView) {
   function updateView(newView) {
@@ -12,16 +13,20 @@ export function initRouter(mainView) {
 
   function hashToRoute(hash) {
     switch (hash) {
-      case "#/page1":
-        updateView(Page1());
+      case "#/home":
+        updateView(HomePage());
         break;
 
-      case "#/page2":
-        updateView(Page2());
+      case "#/trailers":
+        updateView(TrailersPage());
         break;
 
-      case "#/page3":
-        updateView(Page3());
+      case "#/library":
+        updateView(LibraryPage());
+        break;
+
+      case "#/join":
+        updateView(JoinPage());
         break;
 
       default:
@@ -30,7 +35,7 @@ export function initRouter(mainView) {
     }
   }
 
-  const defaultHash = window.location.hash || "#/page1";
+  const defaultHash = window.location.hash || "#/home";
   hashToRoute(defaultHash);
 
   window.addEventListener("hashchange", (evt) => {

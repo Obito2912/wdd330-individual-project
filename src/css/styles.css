@@ -40,6 +40,10 @@ body {
   border-radius: 50px;
 }
 
+.landscape-container img{
+  width: 100%;
+}
+
 @media screen and (min-width: 1024px) {
   body {
     grid: 120px auto 100px / auto;
