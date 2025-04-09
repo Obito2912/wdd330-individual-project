@@ -1,7 +1,7 @@
 import { createElement } from "./utils";
 import { initRouter } from "./router";
-import logoAsset from "../images/animeptm-logo500.webp";
-const logo = logoAsset.default || logoAsset; // Fallback in case it's already a string
+
+const logo = "/images/animeptm-logo500.webp";
 
 // Create some content for the footer.
 const footerContent = createElement("div", {}, [
@@ -14,16 +14,6 @@ const headerContent = createElement("div", { className: "navBar-content" }, [
     createElement("a", { href: "/#/page1", textContent: "Page 1" }),
     createElement("a", { href: "/#/page2", textContent: "Page 2" }),
     createElement("a", { href: "/#/page3", textContent: "Page 3" }),
-    createElement("a", { href: "/#/page4", textContent: "Page 4" }),
-  ]),
-  createElement("picture", { className: "main-logo" }, [
-    createElement("source", { media: "(min-width: 1024px)", srcset: logo }),
-    createElement("img", {
-      src: logo,
-      alt: "AnimePTM Logo",
-      width: "200",
-      height: "200",
-    }),
   ]),
 ]);
 

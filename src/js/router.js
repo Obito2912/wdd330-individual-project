@@ -1,6 +1,6 @@
 import { createElement } from "./utils";
 
-import Page1 from "./Page1";
+import TrailersPage from "./Trailers";
 import Page2 from "./Page2";
 import Page3 from "./Page3";
 
