@@ -1,25 +1,45 @@
 import { createElement } from "./utils";
 
 function HomePage() {
-    const title = createElement("h2", {
-        textContent: "Awake your inner otaku by watching",
+  // Create landscape for landing page
+  const landscapeDiv = createElement(
+    "div",
+    { className: "landscape-container" },
+    [
+      createElement("picture", {}, [
+        createElement("source", {
+          media: "(min-width: 1024px)",
+          srcSet: "/images/landscape-atardecer.jpg",
+        }),
+        createElement("img", {
+          src: "/images/landscape-atardecer.jpg",
+          alt: "Landscape for Landing Page",
+          width: "200",
+          height: "200",
+        }),
+      ]),
+    ],
+  );
+  // Create Title
+  const title = createElement("h2", {
+    textContent: "Awake your inner otaku",
+  });
+  
+  const cardsContainer = createElement("div", {className: "cards-container"});
+
+  fetch ("/json/anime-info.json")
+    .then(response => response.json())
+    .then(data => {
+     data.forEach(element => {
+      const card = createElement("section", {}, [
+          createElement("h3", {textContent: element.title}),
+          createElement("p", {textContent: element.paragraph})
+        ]);
+        cardsContainer.appendChild(card);
       });
-      const source = createElement("source", {
-        media: "(min-width: 1024px)",
-        srcSet:
-        "https://raw.githubusercontent.com/Obito2912/wdd330-individual-project/main/src/public/images/landscape.webp",
-      });
-      const img = createElement("img", {
-        src: "https://raw.githubusercontent.com/Obito2912/wdd330-individual-project/main/src/public/images/landscape.webp",
-        alt: "Landscape for Landing Page",
-        width: "200",
-        height: "200",
-      });
-      const landscape = createElement("picture", {
-        className: "landscape-container",
-      }, [source, img]);
-      
-      return createElement("div", {}, [landscape, title]);
+    })
+
+  return createElement("div", { className: "home-title"}, [landscapeDiv, title, cardsContainer]);
 }
 
 export default HomePage;
