@@ -25,7 +25,7 @@ export function initRouter(mainView) {
         break;
 
       case "#/library":
-        updateView(LibraryPage());
+        updateView(LibraryPage(params));
         break;
 
       case "#/join":
