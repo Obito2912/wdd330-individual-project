@@ -10,7 +10,7 @@ html {
 
 body {
   display: grid;
-  grid: 100px auto 100px / auto;
+  grid: 270px auto 100px / auto;
   min-height: 100vh;
   background-color: #292929;
   color: #fff;
@@ -18,7 +18,6 @@ body {
 
 #header {
   display: grid;
-  align-items: center;
   box-shadow: inset 0 -15px 20px -15px #e4612e;
 }
 
@@ -26,10 +25,21 @@ body {
   font-size: 1.5rem;
   font-weight: 700;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  padding: .3em;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .nav li {
   list-style: none;
+  text-align: center;
 }
 
 .nav li a {
@@ -38,12 +48,12 @@ body {
 
 .logo-container img {
   border-radius: 50px;
+  display: block;
+  margin-inline: auto;
 }
 
 .landscape-container {
-  width: 100%;
-  height: 250px;
-  overflow: hidden;
+  display: none;
 }
 
 .landscape-container img {
@@ -69,11 +79,6 @@ body {
   gap: 20px;
 }
 
-.cards-container section:first-of-type {
-  grid-column: 1 / 4;
-  width: 93.5%;
-}
-
 .cards-container section:first-of-type h2 {
   text-align: center;
 }
@@ -85,19 +90,8 @@ body {
   font-size: 1.5rem;
 }
 
-.trailers-page {
-  display: grid;
-  grid-template-areas:
-    'title title'
-    'back next'
-    'trailers trailers'
-  ;
-  gap: 30px;
-}
-
 .trailers-page .back-button {
   grid-area: back;
-  margin-left: auto;
 }
 
 .trailers-page .next-button {
@@ -114,9 +108,13 @@ body {
   border: 1px solid #faab35;
   border-radius: 10px;
   cursor: pointer;
+  display: block;
+  margin-inline: auto;
+  margin-bottom: 10px;
 }
 
 .trailers-page h1 {
+  margin-bottom: 20px;
   grid-area: title;
 }
 
@@ -145,26 +143,86 @@ body {
   margin-top: 0;
 }
 
-.library-page .aside,
 .library-cards_container {
   padding: 1em;
+  display: grid;
+  gap: 15px;
+}
+
+.library-page .aside {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .library-page .aside .filter-span {
   font-size: 1.5rem;
   font-family: 'Courier New', Courier, monospace;
+  text-align: center;
 }
 
 .anime-card {
   padding: 1em;
   display: grid;
-  gap: 10px;
+  border: 1px solid #afafaf;
 }
 
 .anime-card a {
   display: inline-block;
   width: auto;
   justify-self: start;
+  color: #e4612e;
+}
+
+.anime-card strong {
+  color: #e4612e;
+}
+
+.anime-card span:last-of-type {
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.anime-card .image-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+.anime-card .image-container img {
+  margin-inline: auto;
+  display: block;
+}
+
+.back-page,
+.next-page {
+  background-color: #e4612e17;
+  color: #fff;
+  border: 1px solid #faab35;
+  min-height: 30px;
+}
+
+.filter-year,
+.filter-genre,
+.filter-score,
+.filter-status {
+  min-height: 26px;
+  border: none;
+  background-color: #000;
+  color: #faab35;
+}
+
+.yearFilterContainer,
+.genreFilterContainer,
+.scoreFilterContainer,
+.statusFilterContainer {
+  display: flex;
+  flex-direction: column;
 }
 
 @media screen and (min-width: 1024px) {
@@ -172,25 +230,29 @@ body {
     grid: 120px auto 100px / auto;
   }
 
+  #header {
+    align-items: center;
+  }
+
   .nav-container {
     position: relative;
+    padding: 0;
   }
 
   .nav ul {
-    display: flex;
+    flex-direction: row;
     gap: 100px;
   }
 
   .logo-container {
     position: absolute;
-    top: calc(50% + 5px);
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
 
   .nav li {
     width: 100px;
-    text-align: center;
   }
 
   .nav li:nth-child(1) {
@@ -209,6 +271,17 @@ body {
 
   .nav li:nth-child(4) {
     margin-right: auto;
+  }
+
+  .landscape-container {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+  }
+
+  .cards-container section:first-of-type {
+    grid-column: 1 / 4;
+    width: 93.5%;
   }
 
   .cards-container {
@@ -232,6 +305,20 @@ body {
     line-height: 1.3;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: #afafaf;
+  }
+
+  .trailers-page {
+    grid-template-areas:
+      'title title'
+      'back next'
+      'trailers trailers'
+    ;
+    display: grid;
+    gap: 30px;
+  }
+
+  .trailers-page h1 {
+    margin-bottom: 0;
   }
 
   .trailers-container {
@@ -260,6 +347,17 @@ body {
     margin-inline: auto;
   }
 
+  .trailers-page .back-button {
+    margin-inline: 0;
+    margin-left: auto;
+    margin-bottom: 0;
+  }
+
+  .trailers-page .next-button {
+    margin-inline: 0;
+    margin-bottom: 0;
+  }
+
   .trailers-page .back-button:hover,
   .trailers-page .next-button:hover {
     background-color: #000;
@@ -274,17 +372,51 @@ body {
 
   .library-cards_container,
   .aside {
-    display: grid;
     border-radius: 5px;
     box-shadow: inset 0 0 5px #e4612e;
   }
-  
+
   .library-cards_container {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
-  
+
   .library-cards_container h1 {
-    grid-column: 1 / 3;
+    grid-column: 1 / 4;
+  }
+
+  .anime-card {
+    width: 90%;
+    margin-inline: auto;
+  }
+
+  .anime-card .image-container {
+    height: 420px;
+  }
+
+  .anime-card .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: 50% 100%;
+  }
+
+  .back-page,
+  .next-page {
+    display: inline;
+    padding: .7em .8em;
+    cursor: pointer;
+  }
+
+  .back-page:hover,
+  .next-page:hover {
+    background-color: #000;
+  }
+
+  .filter-year,
+  .filter-genre,
+  .filter-score,
+  .filter-status {
+    cursor: pointer;
   }
 }
 
