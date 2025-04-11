@@ -14,8 +14,8 @@ function TrailersPage(params = new URLSearchParams()) {
     className: "trailers-container",
   });
 
-  externalServices.getTrailers().then((animeArray) => {
-    console.log(animeArray)
+  externalServices.getData(currentPage).then((animeArray) => {
+    console.log(animeArray);
     animeArray.forEach((anime) => {
       if (anime.trailer && anime.trailer.embed_url) {
         const trailerCard = createElement(
@@ -36,9 +36,36 @@ function TrailersPage(params = new URLSearchParams()) {
     });
   });
 
-  const backBtn = createElement("button", {className: "back-button", textContent: "Back"});
-  const nextBtn = createElement("button", {className: "next-button", textContent: "Next"});
-  return createElement("div", {className: "trailers-page"}, [title, backBtn, nextBtn, trailersContainer]);
+  const backBtn = createElement("button", {
+    className: "back-button",
+    textContent: "Back",
+  });
+  const nextBtn = createElement("button", {
+    className: "next-button",
+    textContent: "Next",
+  });
+
+  function updatePageURL(page) {
+    window.location.hash = `#/trailers?page=${page}`;
+  }
+
+  backBtn.addEventListener("click", () => {
+    if (currentPage > 1) {
+      currentPage--;
+      updatePageURL(currentPage);
+    }
+  });
+  nextBtn.addEventListener("click", () => {
+    currentPage++;
+    updatePageURL(currentPage);
+  })
+
+  return createElement("div", { className: "trailers-page" }, [
+    title,
+    backBtn,
+    nextBtn,
+    trailersContainer,
+  ]);
 }
 
 export default TrailersPage;
