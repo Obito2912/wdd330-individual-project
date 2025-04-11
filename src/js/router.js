@@ -12,13 +12,16 @@ export function initRouter(mainView) {
   }
 
   function hashToRoute(hash) {
-    switch (hash) {
+    const [route, queryString] = hash.split("?");
+    const params = new URLSearchParams(queryString);
+
+    switch (route) {
       case "#/home":
         updateView(HomePage());
         break;
 
       case "#/trailers":
-        updateView(TrailersPage());
+        updateView(TrailersPage(params));
         break;
 
       case "#/library":

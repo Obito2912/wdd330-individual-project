@@ -21,7 +21,7 @@ function HomePage() {
     ],
   );
   // Create Title
-  const title = createElement("h2", {
+  const title = createElement("h1", {
     textContent: "Awake your inner otaku",
   });
   
@@ -32,14 +32,14 @@ function HomePage() {
     .then(data => {
      data.forEach(element => {
       const card = createElement("section", {}, [
-          createElement("h3", {textContent: element.title}),
+          createElement("h2", {textContent: element.title}),
           createElement("p", {textContent: element.paragraph})
         ]);
         cardsContainer.appendChild(card);
       });
     })
 
-  return createElement("div", { className: "home-title"}, [landscapeDiv, title, cardsContainer]);
+  return createElement("div", { className: "home-page"}, [landscapeDiv, title, cardsContainer]);
 }
 
 export default HomePage;
