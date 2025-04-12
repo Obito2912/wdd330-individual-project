@@ -39,7 +39,7 @@ function JoinPage() {
         }),
         createElement("label", {
           htmlFor: "feedback",
-          textContent: "What's your favorite anime:",
+          textContent: "Feedback on what we can improve:",
         }),
         createElement("input", {
           id: "feedback",
@@ -69,6 +69,11 @@ function JoinPage() {
   );
   form.addEventListener("submit", (e) => {
     e.preventDefault(); // prevent the 404
+
+    const formData = new FormData(form);
+    const userData = Object.fromEntries(formData.entries());
+    localStorage.setItem("userSubscription", JSON.stringify(userData));
+    
     window.location.hash = "#/thankyou"; // this will trigger your router
   });
   return createElement("div", { className: "join-page" }, [title, form]);

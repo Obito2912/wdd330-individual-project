@@ -34,7 +34,7 @@ export function initRouter(mainView) {
         break;
 
       case "#/thankyou":
-        updateView(thankYouPage());
+        updateView(thankYouPage(params));
         break;
 
       default:
