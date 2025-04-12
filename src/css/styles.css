@@ -225,6 +225,49 @@ body {
   flex-direction: column;
 }
 
+.join-page {
+  width: 97%;
+  margin-inline: auto;
+}
+
+.join-page h1 {
+  text-align: center;
+}
+
+.join-form {
+  margin: 30px auto 30px;
+}
+
+.join-form fieldset {
+  border: 1px solid #fff;
+  border-radius: 10px;
+  padding: .5em 1em;
+}
+
+.join-form label {
+  display: block;
+}
+
+.join-form input,
+#animeRec,
+#submit {
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  min-height: 48px;
+  padding: .5em;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+#submit {
+  width: 60%;
+  display: block;
+  margin: 20px auto;
+  background-color: #000;
+  color: #e4612e;
+}
+
 @media screen and (min-width: 1024px) {
   body {
     grid: 120px auto 100px / auto;
@@ -417,6 +460,42 @@ body {
   .filter-score,
   .filter-status {
     cursor: pointer;
+  }
+
+  .join-page {
+    width: 50%;
+    margin: 30px auto;
+    padding: 1em;
+    border-radius: 10px;
+    background-color: #000;
+  }
+
+  .join-form {
+    width: 80%;
+    max-width: 800px;
+    background-color: #292929;
+    border-radius: 10px;
+    padding: 1em;
+  }
+
+  .join-form fieldset {
+    padding: 1em 2em;
+    border: 1px solid #e4612e;
+  }
+
+  .join-form fieldset legend {
+    font-size: 1.5rem;
+    color: #e4612e;
+  }
+
+  .join-form button {
+    cursor: pointer;
+  }
+
+  .join-form input,
+  #animeRec,
+  #submit {
+    background-color: #000;
   }
 }
 

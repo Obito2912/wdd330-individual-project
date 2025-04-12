@@ -4,6 +4,7 @@ import HomePage from "./Home";
 import TrailersPage from "./Trailers";
 import LibraryPage from "./Library";
 import JoinPage from "./Join";
+import thankYouPage from "./thankyou";
 
 export function initRouter(mainView) {
   function updateView(newView) {
@@ -30,6 +31,10 @@ export function initRouter(mainView) {
 
       case "#/join":
         updateView(JoinPage());
+        break;
+
+      case "#/thankyou":
+        updateView(thankYouPage());
         break;
 
       default:
