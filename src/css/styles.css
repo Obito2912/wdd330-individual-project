@@ -268,7 +268,83 @@ body {
   color: #e4612e;
 }
 
+.thank-you_container {
+  width: 97%;
+  max-width: 500px;
+  margin: 30px auto 0;
+}
+
+.thank-you_container h1 {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.thank-you_container>p {
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+  text-align: center;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.anime-rec {
+  border: 1px solid #faab35;
+  padding: .3em;
+  margin-bottom: 30px;
+  border-radius: 5px;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.anime-rec h2 {
+  color: #faab35;
+}
+
+.anime-rec img {
+  display: block;
+  margin: 10px auto;
+}
+
+.anime-rec a {
+  color: #faab35;
+  margin-top: 20px;
+  display: inline-block;
+  font-size: 1.3rem;
+}
+
+.anime-rec p {
+  color: #faab35;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.anime-rec p:last-of-type {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.first-p,
+.second-p {
+  color: #faab35;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 1.3rem;
+  margin: 20px 0;
+}
+
 @media screen and (min-width: 1024px) {
+  
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(300px);
+    }
+  
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
   body {
     grid: 120px auto 100px / auto;
   }
@@ -354,12 +430,13 @@ body {
     border: 2px solid #e4612e;
     box-shadow: inset 0 0 10px #000;
   }
-  
+
   .landscape-container {
     display: block;
   }
 
-  #header, #footer {
+  #header,
+  #footer {
     background-color: #000;
   }
 
@@ -410,7 +487,7 @@ body {
     margin-bottom: 0;
     border: 1px solid #e4612e;
   }
-  
+
   .trailers-page .next-button {
     border: 1px solid #e4612e;
     margin-inline: 0;

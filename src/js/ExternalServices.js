@@ -16,4 +16,10 @@ export default class ExternalServices {
     const data = await convertToJson(response);
     return data.data;
   }
+
+  async getRandomAnime() {
+    const response = await fetch("https://api.jikan.moe/v4/random/anime");
+    const data = await response.json();
+    return data.data;
+  }
 }
