@@ -1,5 +1,9 @@
 import { createElement } from "./utils";
 
+// The createElement function will be used across all my files. I know maybe it's not the best approach
+// because I'm basically writing my html in my JS files but this is the way I found I could do what I wanted.
+// I wouldn't do this in a real project
+
 function HomePage() {
   // Create landscape for landing page
   const landscapeDiv = createElement(
@@ -27,6 +31,7 @@ function HomePage() {
   
   const cardsContainer = createElement("div", {className: "cards-container"});
 
+  // Bringing the data from my json file so I can use it to create my cards, for each object, a card is created
   fetch ("/json/anime-info.json")
     .then(response => response.json())
     .then(data => {

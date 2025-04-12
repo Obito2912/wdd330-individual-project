@@ -1,6 +1,7 @@
 import { createElement } from "./utils";
 
 function JoinPage() {
+  // This is where I create all my elements for my join page
   const title = createElement("h1", {
     textContent: "Join our awesome community",
   });
@@ -67,13 +68,16 @@ function JoinPage() {
       createElement("button", {textContent: "Subscribe", type: "submit", id: "submit"})
     ],
   );
+  // I prevent the default of the form from loading the page. By doing this I can work
+  // with the formData and userData and be able to store it in localStorage and be
+  // able to use it for the thank you page
   form.addEventListener("submit", (e) => {
     e.preventDefault(); // prevent the 404
 
     const formData = new FormData(form);
     const userData = Object.fromEntries(formData.entries());
     localStorage.setItem("userSubscription", JSON.stringify(userData));
-    
+
     window.location.hash = "#/thankyou"; // this will trigger your router
   });
   return createElement("div", { className: "join-page" }, [title, form]);

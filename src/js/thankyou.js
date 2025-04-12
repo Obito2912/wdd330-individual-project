@@ -4,6 +4,8 @@ import ExternalServices from "./ExternalServices";
 const externalServices = new ExternalServices();
 
 function thankYouPage() {
+  // I use the userData variable to get the object from localStorage
+  // and then use it for example on wantsRec to see if the user answered yes
   const userData = JSON.parse(localStorage.getItem("userSubscription"));
   const wantsRec = userData?.animeRec;
 
@@ -12,7 +14,7 @@ function thankYouPage() {
       textContent: `Thanks for joining, ${userData.name}!`,
     }),
   ]);
-
+  // If the user answered yes, I will do this
   if (wantsRec == 'Yes') {
     externalServices.getRandomAnime().then((anime) => {
       if (
@@ -42,6 +44,7 @@ function thankYouPage() {
       }
     })
   } else {
+    // Otherwise I will only show this
     const recAnime = createElement("div", { className: "anime-rec" }, [
       createElement("p", {className: "first-p", textContent: "We also want to thank you for the feedback. We are striving to improve every day!"}),
       createElement("p", {className: "second-p", textContent: `By the way, ${userData.favAnime} is amazing!`})

@@ -5,7 +5,8 @@ const externalServices = new ExternalServices();
 
 function LibraryPage(params = new URLSearchParams()) {
   let currentPage = parseInt(params.get("page")) || 1;
-
+// Here I use the same strategy with the buttons to be able to change
+// pagination and be able to get more content with every 'next' click
   const backBtn = createElement("button", {
     className: "back-page",
     textContent: "Back",
@@ -20,7 +21,7 @@ function LibraryPage(params = new URLSearchParams()) {
   const genreFilter = createElement("select", { className: "filter-genre" });
   const scoreFilter = createElement("select", { className: "filter-score" });
   const statusFilter = createElement("select", { className: "filter-status" });
-
+// I give a default value for each of the filter elements and I will change it later
   [yearFilter, genreFilter, scoreFilter, statusFilter].forEach((filter) => {
     const defaultOption = createElement("option", {
       value: "",
@@ -36,7 +37,9 @@ function LibraryPage(params = new URLSearchParams()) {
     score: "",
     status: "",
   };
-
+  // This is the eventListener on every button of the filters and
+  // I use my renderFilteredCards to display content according to
+  // the user's choice
   [yearFilter, genreFilter, scoreFilter, statusFilter].forEach(
     (filter, index) => {
       const keys = ["year", "genre", "score", "status"];
@@ -74,7 +77,7 @@ function LibraryPage(params = new URLSearchParams()) {
     { className: "library-cards_container" },
     [title],
   );
-
+  // Once the user changes the filters, this is what is going to be displayed
   externalServices.getData(currentPage).then((data) => {
     animeArray = data.filter(
       (anime) =>
@@ -126,7 +129,7 @@ function LibraryPage(params = new URLSearchParams()) {
       libraryCardsContainer.appendChild(animeCard);
     });
   }
-
+  // Here is how I extract the values and add them to the options in my side bar
   function populateFilterOptions(animeArray) {
     const years = new Set();
     const genres = new Set();
