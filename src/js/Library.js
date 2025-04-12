@@ -55,19 +55,19 @@ function LibraryPage(params = new URLSearchParams()) {
     backBtn,
     nextBtn,
     createElement("div", { className: "yearFilterContainer" }, [
-      createElement("span", { textContent: "FilterYear" }),
+      createElement("span", { textContent: "Filter Year" }),
       yearFilter,
     ]),
     createElement("div", { className: "genreFilterContainer" }, [
-      createElement("span", { textContent: "FilterYear" }),
+      createElement("span", { textContent: "Filter Genre" }),
       genreFilter,
     ]),
     createElement("div", { className: "scoreFilterContainer" }, [
-      createElement("span", { textContent: "FilterYear" }),
+      createElement("span", { textContent: "Filter Score/Rating" }),
       scoreFilter,
     ]),
     createElement("div", { className: "statusFilterContainer" }, [
-      createElement("span", { textContent: "FilterYear" }),
+      createElement("span", { textContent: "Filter Status" }),
       statusFilter,
     ]),
   ]);
