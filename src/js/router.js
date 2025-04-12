@@ -15,7 +15,7 @@ export function initRouter(mainView) {
     mainView.innerHTML = "";
     mainView.appendChild(newView);
   }
-  
+
   function hashToRoute(hash) {
     const [route, queryString] = hash.split("?");
     const params = new URLSearchParams(queryString);
@@ -46,7 +46,7 @@ export function initRouter(mainView) {
         break;
     }
   }
-// When the landing page loads it will have a default hash to display the HomePage view
+  // When the landing page loads it will have a default hash to display the HomePage view
   const defaultHash = window.location.hash || "#/home";
   hashToRoute(defaultHash);
 

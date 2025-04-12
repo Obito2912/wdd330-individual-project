@@ -5,8 +5,8 @@ const externalServices = new ExternalServices();
 
 function LibraryPage(params = new URLSearchParams()) {
   let currentPage = parseInt(params.get("page")) || 1;
-// Here I use the same strategy with the buttons to be able to change
-// pagination and be able to get more content with every 'next' click
+  // Here I use the same strategy with the buttons to be able to change
+  // pagination and be able to get more content with every 'next' click
   const backBtn = createElement("button", {
     className: "back-page",
     textContent: "Back",
@@ -21,7 +21,7 @@ function LibraryPage(params = new URLSearchParams()) {
   const genreFilter = createElement("select", { className: "filter-genre" });
   const scoreFilter = createElement("select", { className: "filter-score" });
   const statusFilter = createElement("select", { className: "filter-status" });
-// I give a default value for each of the filter elements and I will change it later
+  // I give a default value for each of the filter elements and I will change it later
   [yearFilter, genreFilter, scoreFilter, statusFilter].forEach((filter) => {
     const defaultOption = createElement("option", {
       value: "",
@@ -69,7 +69,7 @@ function LibraryPage(params = new URLSearchParams()) {
     createElement("div", { className: "statusFilterContainer" }, [
       createElement("span", { textContent: "FilterYear" }),
       statusFilter,
-    ])
+    ]),
   ]);
 
   const libraryCardsContainer = createElement(

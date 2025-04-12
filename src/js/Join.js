@@ -47,7 +47,7 @@ function JoinPage() {
           name: "feedback",
           type: "text",
           placeholder: "Update your list of animes",
-          required: true
+          required: true,
         }),
         createElement("label", {
           htmlFor: "animeRec",
@@ -59,13 +59,17 @@ function JoinPage() {
             disabled: true,
             selected: true,
             textContent: "Select an option",
-            required: true
+            required: true,
           }),
           createElement("option", { value: "Yes", textContent: "Yes" }),
           createElement("option", { value: "No", textContent: "No" }),
         ]),
       ]),
-      createElement("button", {textContent: "Subscribe", type: "submit", id: "submit"})
+      createElement("button", {
+        textContent: "Subscribe",
+        type: "submit",
+        id: "submit",
+      }),
     ],
   );
   // I prevent the default of the form from loading the page. By doing this I can work

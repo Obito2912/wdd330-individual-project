@@ -9,13 +9,17 @@ function thankYouPage() {
   const userData = JSON.parse(localStorage.getItem("userSubscription"));
   const wantsRec = userData?.animeRec;
 
-  const thankYouContainer = createElement("div", {className: "thank-you_container"}, [
-    createElement("h1", {
-      textContent: `Thanks for joining, ${userData.name}!`,
-    }),
-  ]);
+  const thankYouContainer = createElement(
+    "div",
+    { className: "thank-you_container" },
+    [
+      createElement("h1", {
+        textContent: `Thanks for joining, ${userData.name}!`,
+      }),
+    ],
+  );
   // If the user answered yes, I will do this
-  if (wantsRec == 'Yes') {
+  if (wantsRec == "Yes") {
     externalServices.getRandomAnime().then((anime) => {
       if (
         anime.title &&
@@ -42,12 +46,19 @@ function thankYouPage() {
         thankYouContainer.appendChild(meantimeMsg);
         thankYouContainer.appendChild(recAnime);
       }
-    })
+    });
   } else {
     // Otherwise I will only show this
     const recAnime = createElement("div", { className: "anime-rec" }, [
-      createElement("p", {className: "first-p", textContent: "We also want to thank you for the feedback. We are striving to improve every day!"}),
-      createElement("p", {className: "second-p", textContent: `By the way, ${userData.favAnime} is amazing!`})
+      createElement("p", {
+        className: "first-p",
+        textContent:
+          "We also want to thank you for the feedback. We are striving to improve every day!",
+      }),
+      createElement("p", {
+        className: "second-p",
+        textContent: `By the way, ${userData.favAnime} is amazing!`,
+      }),
     ]);
 
     thankYouContainer.appendChild(recAnime);

@@ -28,23 +28,27 @@ function HomePage() {
   const title = createElement("h1", {
     textContent: "Awake your inner otaku",
   });
-  
-  const cardsContainer = createElement("div", {className: "cards-container"});
+
+  const cardsContainer = createElement("div", { className: "cards-container" });
 
   // Bringing the data from my json file so I can use it to create my cards, for each object, a card is created
-  fetch ("/json/anime-info.json")
-    .then(response => response.json())
-    .then(data => {
-     data.forEach(element => {
-      const card = createElement("section", {}, [
-          createElement("h2", {textContent: element.title}),
-          createElement("p", {textContent: element.paragraph})
+  fetch("/json/anime-info.json")
+    .then((response) => response.json())
+    .then((data) => {
+      data.forEach((element) => {
+        const card = createElement("section", {}, [
+          createElement("h2", { textContent: element.title }),
+          createElement("p", { textContent: element.paragraph }),
         ]);
         cardsContainer.appendChild(card);
       });
-    })
+    });
 
-  return createElement("div", { className: "home-page"}, [landscapeDiv, title, cardsContainer]);
+  return createElement("div", { className: "home-page" }, [
+    landscapeDiv,
+    title,
+    cardsContainer,
+  ]);
 }
 
 export default HomePage;

@@ -14,9 +14,9 @@ function TrailersPage(params = new URLSearchParams()) {
   const trailersContainer = createElement("div", {
     className: "trailers-container",
   });
-// I call the class here to get the data I need and be able to create
-// all the cards for each of the array objects if they have the
-// requirements from the if statements
+  // I call the class here to get the data I need and be able to create
+  // all the cards for each of the array objects if they have the
+  // requirements from the if statements
   externalServices.getData(currentPage).then((animeArray) => {
     animeArray.forEach((anime) => {
       if (anime.trailer && anime.trailer.embed_url) {
@@ -46,13 +46,13 @@ function TrailersPage(params = new URLSearchParams()) {
     className: "next-button",
     textContent: "Next",
   });
-// This function allows me to work with the buttons above in order to change
-// the page and be able to display different content
+  // This function allows me to work with the buttons above in order to change
+  // the page and be able to display different content
   function updatePageURL(page) {
     window.location.hash = `#/trailers?page=${page}`;
   }
-// Here I have eventListeners for both of my buttons, to increment the pagination
-// number or decrease it at will
+  // Here I have eventListeners for both of my buttons, to increment the pagination
+  // number or decrease it at will
   backBtn.addEventListener("click", () => {
     if (currentPage > 1) {
       currentPage--;
@@ -62,8 +62,8 @@ function TrailersPage(params = new URLSearchParams()) {
   nextBtn.addEventListener("click", () => {
     currentPage++;
     updatePageURL(currentPage);
-  })
-// Here I create the view of all I want to display in my trailers-page
+  });
+  // Here I create the view of all I want to display in my trailers-page
   return createElement("div", { className: "trailers-page" }, [
     title,
     backBtn,

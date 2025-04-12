@@ -14,7 +14,6 @@ export default class ExternalServices {
   // This function gets the an Array of data from the API. This API is paginated and that's why
   // it has a parameter so it can be changed by the user in the trailers and library pages
   async getData(page = 1) {
-
     const response = await fetch(`${baseUrl}?page=${page}`);
     const data = await convertToJson(response);
     return data.data;
